@@ -6,6 +6,8 @@
 #include "usb_descriptors.h"
 #include "tllist.h"
 
+#define POLL_INTERVAL 10
+
 typedef tll(uint16_t) encoder_queue_t;
 /* Blink pattern
  * - 250 ms  : device not mounted

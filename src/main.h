@@ -132,7 +132,7 @@ hid_report get_keycode() {
     uint32_t start = to_ms_since_boot(get_absolute_time());
 
     while (to_ms_since_boot(get_absolute_time()) - start < DEBOUNCE_DELAY) {
-        int8_t current_keys[2] = {-1};
+        int8_t current_keys[2] = {0};
         int8_t cnt = 0;
         scan_matrix(current_keys, &cnt);
 

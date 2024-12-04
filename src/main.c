@@ -62,6 +62,7 @@ int main() {
         // tud_task();
         // run tud_task on a different core
         // update the macropad stuff
+        // tud_task();
         update_macropad((macropad_options){
             .get_keycode_function = get_keycode,
             .get_enc = get_enc,
