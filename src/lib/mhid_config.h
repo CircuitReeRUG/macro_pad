@@ -1,0 +1,3 @@
+#define POLL_INTERVAL 10
+#define MP_CUSTOM_REPEAT
+#define MP_REPEAT_DELAY 300

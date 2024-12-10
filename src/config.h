@@ -1,32 +1,10 @@
-#pragma once
-#include <pico/stdlib.h>
-
-#include "tusb.h"
-#include "tllist.h"
-
 #define DEBOUNCE_DELAY 10
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 3
 #define RESET_BOOTSEL_KEY 2
 
-#define query(key) keymap[key / MATRIX_COLS][key % MATRIX_COLS]
-
 static const uint col_pins[MATRIX_COLS] = {3, 4, 5};
 static const uint row_pins[MATRIX_ROWS] = {6, 7, 8, 9};
-
-typedef struct EncoderControls {
-    uint16_t increment;
-    uint16_t decrement;
-    uint16_t button;
-} EncoderControls;
-
-typedef struct Key {
-    bool type;
-    union {
-        uint8_t mod_key;
-        uint8_t keys[6];
-    };
-}Key;
 
 static const Key keymap[MATRIX_ROWS][MATRIX_COLS] = {
     {

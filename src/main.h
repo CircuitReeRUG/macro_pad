@@ -7,12 +7,13 @@
 #include <pico/stdlib.h>
 #include <stdio.h>
 
+#include "defs.h"
+#include "mhid.h"
 #include "config.h"
 #include "display.h"
 #include "encoder.h"
 #include "hardware/timer.h"
 #include "hid_helpers.h"
-#include "mhid.h"
 #include "tllist.h"
 
 static display_t oled_display;
@@ -153,6 +154,6 @@ bool check_reset() {
     return arr[0] == RESET_BOOTSEL_KEY || arr[1] == RESET_BOOTSEL_KEY;
 }
 
-static inline void update_macropad(macropad_options options) {
-    hid_task(options);
+static inline void update_macropad(macropad_options options, mhid_state *state) {
+    hid_task(options, state);
 }

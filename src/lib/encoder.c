@@ -53,9 +53,7 @@ static inline int32_t quadrature_encoder_get_count(PIO pio, uint sm) {
     return ret;
 }
 
-static inline void enc_irq(uint gpio, uint32_t events) {
-    (void)gpio;
-    (void)events;
+static inline void enc_irq(__unused uint gpio, __unused uint32_t events) {
     uint32_t irq_status = save_and_disable_interrupts();
     enc_btn_state = (events & GPIO_IRQ_EDGE_FALL) ?: false;
     restore_interrupts(irq_status);

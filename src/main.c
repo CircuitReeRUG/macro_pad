@@ -56,7 +56,10 @@ int main() {
 
     check_reset() ? reset_usb_boot(0, 0) : 0;
 
+    mhid_state kb_state = {0};
+
     multicore_launch_core1(core1_entry);
+
     while (1) {
         // poll the usb
         // tud_task();
@@ -66,6 +69,6 @@ int main() {
         update_macropad((macropad_options){
             .get_keycode_function = get_keycode,
             .get_enc = get_enc,
-            .set_display_function = set_display});
+            .set_display_function = set_display}, &kb_state);
     }
 }
